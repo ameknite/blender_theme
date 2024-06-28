@@ -23,7 +23,7 @@ strip = true
 unsafe_code = "warn"
 unsafe_op_in_unsafe_fn = "warn"
 missing-abi = "warn"
-missing_docs = "warn"
+missing_docs = "allow"
 
 [lints.clippy]
 # https://rust-lang.github.io/rust-clippy/master/
