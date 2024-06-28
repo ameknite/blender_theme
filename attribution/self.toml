@@ -1,0 +1,6 @@
+[self]
+name = "ame_rust_template"
+version = "0.1.0"
+description = "A rust ci/cd template for github"
+license = "MPL-2.0"
+repository = "https://github.com/ameknite/ame-rust-template"
