@@ -20,6 +20,8 @@ on:
           - major
       check-to-publish:
         type: boolean
+      overwrite-tag:
+        type: boolean
   workflow_call:
     inputs:
       version:
@@ -28,6 +30,8 @@ on:
       release_type:
         type: string
       check-to-publish:
+        type: boolean
+      overwrite-tag:
         type: boolean
 
 jobs:
@@ -147,13 +151,13 @@ jobs:
       - run: git pull
 
       - uses: mukunku/tag-exists-action@v1.6.0
-        if: ${{ !inputs.version && inputs.release_type == 'none' }}
-        id: check-tag-none
+        if: ${{ !inputs.overwrite-tag == 'true' }}
+        id: check-tag-overwrite
         with:
           tag: ${{  needs.get-version.outputs.tag_version }}
 
       - name: Delete tag
-        if: ${{ steps.check-tag-none.outputs.exists == 'true' }}
+        if: ${{ steps.check-tag-overwrite.outputs.exists == 'true' }}
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
