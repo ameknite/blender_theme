@@ -128,7 +128,9 @@ jobs:
           cargo miri setup;
 
       - name: Test with Miri
-        run: cargo miri test --workspace --all-targets --all-features
+        run: |
+          MIRIFLAGS=-Zmiri-disable-isolation 
+          cargo miri test --workspace --all-targets --all-features
 
   typos-cli:
     name: typos
