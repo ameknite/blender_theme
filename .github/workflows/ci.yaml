@@ -129,7 +129,7 @@ jobs:
 
       - name: Test with Miri
         run: |
-          MIRIFLAGS=-Zmiri-disable-isolation 
+          MIRIFLAGS=-Zmiri-disable-isolation
           cargo miri test --workspace --all-targets --all-features
 
   typos-cli:
