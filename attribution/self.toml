@@ -1,6 +1,12 @@
 [self]
-name = "ame_rust_template"
+name = "blender_theme"
 version = "0.1.0"
-description = "A rust ci/cd template for github"
-license = "MPL-2.0"
-repository = "https://github.com/ameknite/ame-rust-template"
+description = "Original Blender Dark Theme"
+license = "GPL-3.0-or-later"
+notices = [
+  "11 of the WIPO copyright treaty adopted on 20 December 1996, or",
+  "<program>  Copyright (C) <year>  <name of author>",
+  "Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>",
+  "Copyright (C) <year>  <name of author>",
+]
+repository = "https://github.com/ameknite/blender_theme"
