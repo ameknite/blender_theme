@@ -113,12 +113,6 @@ jobs:
       tag_version: ${{ inputs.version || steps.new_version.outputs.normal_tag_version || steps.current_version.outputs.normal_tag_version }}
       crate_version: ${{ steps.full_version.outputs.normal_crate_version || steps.new_version.outputs.new_version || steps.current_version.outputs.current_version }}
 
-  add-notice:
-    needs: [get-version]
-    uses: ./.github/workflows/add_notice.yaml
-    with:
-      commit_message: ${{  needs.get-version.outputs.crate_version }}
-
   run-ci:
     needs: validate-input
     uses: ./.github/workflows/ci.yaml
@@ -126,6 +120,12 @@ jobs:
   cargo-miri:
     needs: validate-input
     uses: ./.github/workflows/cargo_miri.yaml
+
+  add-notice:
+    needs: [run-ci, get-version, cargo-miri]
+    uses: ./.github/workflows/add_notice.yaml
+    with:
+      commit_message: ${{  needs.get-version.outputs.crate_version }}
 
   cargo-semver-checks:
     needs: [run-ci, get-version, cargo-miri]
