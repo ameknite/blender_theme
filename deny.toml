@@ -12,7 +12,17 @@ feature-depth = 1
 ignore = []
 
 [licenses]
-allow = ["GPL-3.0"]
+allow = [
+  # Permissive
+  "Apache-2.0",
+  "MIT",
+  "Unicode-DFS-2016",
+  "Zlib",
+  # CopyLeft - Only Source Code
+  "MPL-2.0",
+  # CopyLeft
+  "GPL-3.0",
+]
 confidence-threshold = 0.8
 exceptions = []
 
