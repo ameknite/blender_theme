@@ -250,6 +250,7 @@ jobs:
           target: ${{ matrix.target }}
           include: attribution
           archive: $bin-$tag-$target
+          asset: themes
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: refs/tags/${{  needs.get-version.outputs.tag_version }}
           checksum: sha256
