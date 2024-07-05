@@ -22,10 +22,9 @@ use blender_theme::{B3dTheme, Version};
 
 fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
+
     let mut theme: B3dTheme = Version::V4_2.get_default_theme()?;
-
     // theme modifications
-
     theme.save_theme("themes/my_theme.xml")?;
 
     Ok(())
@@ -39,10 +38,9 @@ use blender_theme::{B3dTheme, Version};
 
 fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
+
     let theme = B3dTheme::from_file("themes/my_theme.xml", &Version::V4_2)?;
-
     // theme modifications
-
     theme.save_theme("themes/my_modified_theme.xml")?;
 
     Ok(())
