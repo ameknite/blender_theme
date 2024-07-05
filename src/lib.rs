@@ -3,7 +3,7 @@
 pub mod types;
 
 use core::fmt;
-use std::{fs, path::PathBuf, str::FromStr};
+use std::{env, fs, path::PathBuf, str::FromStr};
 
 use serde::{Deserialize, Serialize};
 use xmlem::{
@@ -1482,10 +1482,10 @@ pub enum Version {
 impl fmt::Display for Version {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let version_str = match self {
-            Version::V3_6 => "blender_dark_v3.6.xml",
-            Version::V4_0 => "blender_dark_v4.0.xml",
-            Version::V4_1 => "blender_dark_v4.1.xml",
-            Version::V4_2 => "blender_dark_v4.2.xml",
+            Version::V3_6 => "blender_dark_v3_6",
+            Version::V4_0 => "blender_dark_v4_0",
+            Version::V4_1 => "blender_dark_v4_1",
+            Version::V4_2 => "blender_dark_v4_2",
         };
         write!(f, "{version_str}")
     }
@@ -1493,7 +1493,7 @@ impl fmt::Display for Version {
 
 impl Version {
     pub fn get_theme(&self) -> color_eyre::Result<B3dTheme> {
-        let path = self.create_path("themes/original");
+        let path = self.get_path();
         let xml = fs::read_to_string(path)?;
 
         let xml_de = &mut quick_xml::de::Deserializer::from_str(&xml);
@@ -1511,9 +1511,12 @@ impl Version {
         Ok(theme)
     }
 
-    pub fn create_path(&self, parent_dir: &str) -> PathBuf {
-        let path = PathBuf::from(parent_dir);
-        path.join(self.to_string())
+    pub fn get_path(&self) -> PathBuf {
+        let crate_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+        let path_dir = crate_dir.join("themes/original");
+        let mut path_file = path_dir.join(self.to_string());
+        path_file.set_extension("xml");
+        path_file
     }
 }
 
@@ -1525,7 +1528,8 @@ impl B3dTheme {
     ) -> color_eyre::Result<B3dTheme> {
         let parent_dir = PathBuf::from(destination);
         fs::create_dir_all(&parent_dir)?;
-        let path = parent_dir.join(file_name);
+        let mut path = parent_dir.join(file_name);
+        path.set_extension("xml");
 
         let xml_serialized = quick_xml::se::to_string(&self.bpy)?;
 
