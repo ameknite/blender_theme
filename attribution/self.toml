@@ -1,7 +1,7 @@
 [self]
 name = "blender_theme"
 version = "0.1.0"
-description = "Original Blender Dark Theme"
+description = "Blender Theme Model"
 license = "GPL-3.0-or-later"
 notices = [
   "11 of the WIPO copyright treaty adopted on 20 December 1996, or",
