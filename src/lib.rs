@@ -1526,7 +1526,7 @@ impl Version {
 impl B3dTheme {
     pub fn from_file<P: AsRef<Path>>(
         file_path: P,
-        version: &Version,
+        version: Version,
     ) -> color_eyre::Result<B3dTheme> {
         let xml = fs::read_to_string(file_path)?;
 
@@ -1538,10 +1538,7 @@ impl B3dTheme {
         }
 
         let bpy: Bpy = quick_xml::de::from_str(&xml)?;
-        let theme = B3dTheme {
-            bpy,
-            version: version.clone(),
-        };
+        let theme = B3dTheme { bpy, version };
         Ok(theme)
     }
 
