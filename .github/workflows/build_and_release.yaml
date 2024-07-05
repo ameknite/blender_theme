@@ -263,12 +263,13 @@ jobs:
     needs: [get-version, create-release]
     runs-on: ubuntu-latest
     steps:
-      - uses: taiki-e/upload-rust-binary-action@v1
+      - name: Upload Assets
+        uses: svenstaro/upload-release-action@v2
         with:
-          bin: ${{ github.event.repository.name }}
-          asset: themes
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: refs/tags/${{  needs.get-version.outputs.tag_version }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: themes/
+          tag: ${{  needs.get-version.outputs.tag_version }}
+          overwrite: true
 
   publish-crate:
     needs: [create-tag]
