@@ -6,6 +6,8 @@ on:
       bump-version:
         type: string
         required: true
+      overwrite-tag:
+        type: boolean
   workflow_dispatch:
     inputs:
       bump-version:
@@ -22,9 +24,11 @@ on:
 
 jobs:
   check-if-lib:
+    if: ${{ !inputs.overwrite-tag == 'true' }}
     uses: ./.github/workflows/crate_type.yaml
 
   get-baseline:
+    if: ${{ !inputs.overwrite-tag == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Fetch Repository
@@ -47,7 +51,7 @@ jobs:
 
   cargo-semver-checks:
     needs: [check-if-lib, get-baseline]
-    if: ${{ needs.check-if-lib.outputs.is_lib == 'true' && needs.get-baseline.outputs.baseline != ''}}
+    if: ${{ needs.check-if-lib.outputs.is_lib == 'true' && needs.get-baseline.outputs.baseline != '' }}
     runs-on: ubuntu-latest
     steps:
       - name: Fetch Repository

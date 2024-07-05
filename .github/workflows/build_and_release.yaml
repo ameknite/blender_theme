@@ -128,12 +128,14 @@ jobs:
       commit_message: ${{  needs.get-version.outputs.crate_version }}
 
   cargo-semver-checks:
-    needs: [run-ci, get-version]
+    needs: [get-version, run-ci]
     uses: ./.github/workflows/cargo_semver_checks.yaml
     with:
       bump-version: ${{ needs.get-version.outputs.crate_version }}
+      overwrite-tag: ${{ inputs.overwrite-tag }}
 
   bump-version:
+
     needs: [cargo-semver-checks, get-version]
     uses: ./.github/workflows/bump_version.yaml
     with:
