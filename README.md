@@ -39,7 +39,7 @@ use blender_theme::{B3dTheme, Version};
 fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
 
-    let theme = B3dTheme::from_file("themes/my_theme.xml", &Version::V4_2)?;
+    let theme = B3dTheme::from_file("themes/my_theme.xml", Version::V4_2)?;
     // theme modifications
     theme.save_theme("themes/my_modified_theme.xml")?;
 
