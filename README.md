@@ -13,22 +13,40 @@ Facilitate the creation of blender themes.
 blender_theme = "0.1"
 ```
 
-## Example
+## Examples
+
+Using the default blender dark theme.
 
 ```rust
 use blender_theme::{B3dTheme, Version};
 
 fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
-    let mut theme: B3dTheme = Version::V4_2.get_theme()?;
+    let mut theme: B3dTheme = Version::V4_2.get_default_theme()?;
 
     // theme modifications
 
-    theme.create_theme("themes/", "my_theme")?;
+    theme.save_theme("themes/my_theme.xml")?;
 
     Ok(())
 }
+```
 
+Using your own theme.
+
+```rust
+use blender_theme::{B3dTheme, Version};
+
+fn main() -> color_eyre::Result<()> {
+    color_eyre::install()?;
+    let theme = B3dTheme::from_file("themes/my_theme.xml", &Version::V4_2)?;
+
+    // theme modifications
+
+    theme.save_theme("themes/my_modified_theme.xml")?;
+
+    Ok(())
+}
 ```
 
 ## Supported Versions

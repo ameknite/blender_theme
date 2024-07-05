@@ -2,6 +2,8 @@
 
 //! Blender Theme
 
+use std::path::PathBuf;
+
 use blender_theme::Version;
 
 #[test]
@@ -12,11 +14,13 @@ fn create_themes() -> color_eyre::Result<()> {
     let mut original_themes = Vec::with_capacity(versions.len());
 
     for version in &versions {
-        original_themes.push(version.get_theme()?);
+        original_themes.push(version.get_default_theme()?);
     }
 
     for theme in &original_themes {
-        theme.create_theme("themes/created", &theme.version.to_string())?;
+        let save_path = PathBuf::from("themes/created");
+        let save_path = save_path.join(theme.version.to_string());
+        theme.save_theme(&save_path)?;
     }
 
     Ok(())

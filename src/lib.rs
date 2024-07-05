@@ -3,7 +3,11 @@
 pub mod types;
 
 use core::fmt;
-use std::{env, fs, path::PathBuf, str::FromStr};
+use std::{
+    env, fs,
+    path::{Path, PathBuf},
+    str::FromStr,
+};
 
 use serde::{Deserialize, Serialize};
 use xmlem::{
@@ -1482,17 +1486,18 @@ pub enum Version {
 impl fmt::Display for Version {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let version_str = match self {
-            Version::V3_6 => "blender_dark_v3_6",
-            Version::V4_0 => "blender_dark_v4_0",
-            Version::V4_1 => "blender_dark_v4_1",
-            Version::V4_2 => "blender_dark_v4_2",
+            Version::V3_6 => "blender_dark_v3_6.xml",
+            Version::V4_0 => "blender_dark_v4_0.xml",
+            Version::V4_1 => "blender_dark_v4_1.xml",
+            Version::V4_2 => "blender_dark_v4_2.xml",
         };
         write!(f, "{version_str}")
     }
 }
 
 impl Version {
-    pub fn get_theme(&self) -> color_eyre::Result<B3dTheme> {
+    /// Default Blender Dark Theme.
+    pub fn get_default_theme(&self) -> color_eyre::Result<B3dTheme> {
         let path = self.get_path();
         let xml = fs::read_to_string(path)?;
 
@@ -1511,25 +1516,42 @@ impl Version {
         Ok(theme)
     }
 
-    pub fn get_path(&self) -> PathBuf {
+    fn get_path(&self) -> PathBuf {
         let crate_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         let path_dir = crate_dir.join("themes/original");
-        let mut path_file = path_dir.join(self.to_string());
-        path_file.set_extension("xml");
-        path_file
+        path_dir.join(self.to_string())
     }
 }
 
 impl B3dTheme {
-    pub fn create_theme(
-        &self,
-        destination: &str,
-        file_name: &str,
+    pub fn from_file<P: AsRef<Path>>(
+        file_path: P,
+        version: &Version,
     ) -> color_eyre::Result<B3dTheme> {
-        let parent_dir = PathBuf::from(destination);
-        fs::create_dir_all(&parent_dir)?;
-        let mut path = parent_dir.join(file_name);
-        path.set_extension("xml");
+        let xml = fs::read_to_string(file_path)?;
+
+        let xml_de = &mut quick_xml::de::Deserializer::from_str(&xml);
+        let result: Result<Bpy, _> = serde_path_to_error::deserialize(xml_de);
+        if let Err(err) = &result {
+            let path = err.path();
+            println!("{path:#?}");
+        }
+
+        let bpy: Bpy = quick_xml::de::from_str(&xml)?;
+        let theme = B3dTheme {
+            bpy,
+            version: version.clone(),
+        };
+        Ok(theme)
+    }
+
+    pub fn save_theme<P: AsRef<Path>>(
+        &self,
+        file_path: P,
+    ) -> color_eyre::Result<B3dTheme> {
+        fs::create_dir_all(
+            file_path.as_ref().parent().unwrap_or(&PathBuf::from(".")),
+        )?;
 
         let xml_serialized = quick_xml::se::to_string(&self.bpy)?;
 
@@ -1543,7 +1565,7 @@ impl B3dTheme {
             indent_text_nodes: true,
         });
 
-        fs::write(path, &xml_serialized)?;
+        fs::write(file_path, &xml_serialized)?;
 
         let bpy: Bpy = quick_xml::de::from_str(&xml_serialized)?;
         let theme = B3dTheme {
