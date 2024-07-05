@@ -31,7 +31,7 @@ fn main() -> color_eyre::Result<()> {
 
 ```
 
-## Support Versions
+## Supported Versions
 
 | blender_theme | blender   |
 | ------------- | --------- |
