@@ -1,6 +1,6 @@
 [package]
 name = "blender_theme"
-description = "Original Blender Dark Theme"
+description = "Blender Theme Model"
 version = "0.1.0"
 edition = "2021"
 license = "GPL-3.0-or-later"
