@@ -72,12 +72,12 @@ jobs:
       - name: Cargo doc test
         run: cargo doc --workspace --all-features
 
-  check-if-lib:
+  check-crate-type:
     uses: ./.github/workflows/crate_type.yaml
 
   cargo-test-doc:
-    needs: check-if-lib
-    if: ${{ needs.check-if-lib.outputs.is_lib == 'true' }}
+    needs: check-crate-type
+    if: ${{ needs.check-crate-type.outputs.is_lib == 'true' }}
     name: Cargo test doc
     runs-on: ubuntu-latest
 
