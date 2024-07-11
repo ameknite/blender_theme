@@ -10,7 +10,7 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 pub struct Factor(f32);
 
 impl Factor {
-    pub fn new(value: f32) -> Result<Self, FactorError> {
+    pub fn try_from_f32(value: f32) -> Result<Self, FactorError> {
         if (0.0..=1.0).contains(&value) {
             Ok(Factor(value))
         } else {
@@ -21,7 +21,22 @@ impl Factor {
     pub fn value(&self) -> f32 {
         self.0
     }
+
+    #[allow(clippy::cast_possible_truncation)]
+    #[allow(clippy::cast_sign_loss)]
+    pub fn to_hex_str(&self) -> String {
+        format!("{:02x}", (self.value() * 255.0) as u8)
+    }
 }
+
+impl TryFrom<f32> for Factor {
+    type Error = FactorError;
+
+    fn try_from(value: f32) -> Result<Self, Self::Error> {
+        Factor::try_from_f32(value)
+    }
+}
+
 #[derive(Debug, Error)]
 pub enum FactorError {
     #[error("Factor value must be between 0.0 and 1.0, but got: {0}")]
@@ -34,7 +49,7 @@ impl<'de> Deserialize<'de> for Factor {
         D: Deserializer<'de>,
     {
         let value = f32::deserialize(deserializer)?;
-        Factor::new(value).map_err(serde::de::Error::custom)
+        Factor::try_from_f32(value).map_err(serde::de::Error::custom)
     }
 }
 
@@ -43,7 +58,7 @@ impl Serialize for Factor {
     where
         S: Serializer,
     {
-        serializer.serialize_f32(self.0)
+        serializer.serialize_f32(self.value())
     }
 }
 
@@ -54,11 +69,11 @@ pub struct HexColor {
 }
 
 impl HexColor {
-    pub fn new(value: u32, has_alpha: bool) -> Self {
+    fn new(value: u32, has_alpha: bool) -> Self {
         Self { value, has_alpha }
     }
 
-    pub fn new_from_hex(hex_str: &str) -> Result<Self, HexColorError> {
+    pub fn try_from_str(hex_str: &str) -> Result<Self, HexColorError> {
         if !hex_str.starts_with('#') {
             return Err(HexColorError::MissingHash(hex_str.to_string()));
         }
@@ -90,9 +105,31 @@ impl HexColor {
     }
 }
 
+impl TryFrom<&str> for HexColor {
+    type Error = HexColorError;
+
+    fn try_from(value: &str) -> Result<Self, Self::Error> {
+        HexColor::try_from_str(value)
+    }
+}
+
+impl TryFrom<String> for HexColor {
+    type Error = HexColorError;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        HexColor::try_from_str(&value)
+    }
+}
+
+impl fmt::Display for HexColor {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.to_hex_string())
+    }
+}
+
 #[derive(Debug, Error)]
 pub enum HexColorError {
-    #[error("Missing the leading '#': {0}")]
+    #[error("Missing the leading hash '#': {0}")]
     MissingHash(String),
     #[error("Color string has incorrect length (should be 7 or 9, counting the hash #): {0}")]
     IncorrectLength(String),
@@ -106,7 +143,7 @@ impl<'de> Deserialize<'de> for HexColor {
         D: Deserializer<'de>,
     {
         let s = String::deserialize(deserializer)?;
-        HexColor::new_from_hex(&s).map_err(serde::de::Error::custom)
+        HexColor::try_from_str(&s).map_err(serde::de::Error::custom)
     }
 }
 
