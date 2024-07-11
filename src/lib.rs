@@ -1486,10 +1486,10 @@ pub enum Version {
 impl fmt::Display for Version {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let version_str = match self {
-            Version::V3_6 => "blender_dark_v3_6.xml",
-            Version::V4_0 => "blender_dark_v4_0.xml",
-            Version::V4_1 => "blender_dark_v4_1.xml",
-            Version::V4_2 => "blender_dark_v4_2.xml",
+            Version::V3_6 => "v3.6",
+            Version::V4_0 => "v4.0",
+            Version::V4_1 => "v4.1",
+            Version::V4_2 => "v4.2",
         };
         write!(f, "{version_str}")
     }
@@ -1519,7 +1519,11 @@ impl Version {
     fn get_path(&self) -> PathBuf {
         let crate_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         let path_dir = crate_dir.join("themes/original");
-        path_dir.join(self.to_string())
+        path_dir.join(self.file_name())
+    }
+
+    pub fn file_name(&self) -> String {
+        format!("{self}_blender_dark.xml")
     }
 }
 
@@ -1573,5 +1577,9 @@ impl B3dTheme {
         assert_eq!(self, &theme);
 
         Ok(theme)
+    }
+
+    pub fn all_versions() -> Vec<Version> {
+        vec![Version::V3_6, Version::V4_0, Version::V4_1, Version::V4_2]
     }
 }
