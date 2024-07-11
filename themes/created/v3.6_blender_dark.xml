@@ -1,4 +1,4 @@
-<Bpy>
+<bpy>
   <Theme>
     <user_interface>
       <ThemeUserInterface
@@ -1407,4 +1407,4 @@
         shadow_value="0"/>
     </widget>
   </ThemeStyle>
-</Bpy>
+</bpy>

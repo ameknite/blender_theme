@@ -25,6 +25,7 @@ pub struct B3dTheme {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
+#[serde(rename = "bpy")]
 pub struct Bpy {
     pub theme: Theme,
     pub theme_style: ThemeStyle,
