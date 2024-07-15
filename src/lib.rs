@@ -25,6 +25,7 @@ pub struct B3dTheme {
 
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
+#[serde(rename = "bpy")]
 pub struct Bpy {
     pub theme: Theme,
     pub theme_style: ThemeStyle,
@@ -1519,8 +1520,11 @@ impl Version {
     fn get_path(&self) -> PathBuf {
         let crate_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         let path_dir = crate_dir.join("themes/original");
-        let file_name = format!("blender_dark_{self}.xml");
-        path_dir.join(file_name)
+        path_dir.join(self.file_name())
+    }
+
+    pub fn file_name(&self) -> String {
+        format!("{self}_blender_dark.xml")
     }
 }
 
