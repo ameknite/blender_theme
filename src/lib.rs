@@ -17,21 +17,20 @@ use xmlem::{
 
 use crate::types::{BackGroundType, Boolean, Factor, HexColor};
 
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct B3dTheme {
     pub bpy: Bpy,
     pub version: Version,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
-#[serde(rename = "bpy")]
 pub struct Bpy {
     pub theme: Theme,
     pub theme_style: ThemeStyle,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct Theme {
     pub user_interface: UserInterface,
     pub view_3d: View3d,
@@ -57,13 +56,13 @@ pub struct Theme {
     pub strip_color: StripColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct UserInterface {
     pub theme_user_interface: ThemeUserInterface,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeUserInterface {
     #[serde(rename = "@menu_shadow_fac")]
     pub menu_shadow_fac: Factor,
@@ -146,139 +145,139 @@ pub struct ThemeUserInterface {
     pub wcol_tab: WcolTab,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolRegular {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolTool {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolToolbarItem {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolRadio {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolText {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolOption {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolToggle {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolNum {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolNumslider {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolBox {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolMenu {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolPulldown {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolMenuBack {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolPieMenu {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolTooltip {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolMenuItem {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolScroll {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolProgress {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolListItem {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolViewItem {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolState {
     pub theme_widget_state_colors: ThemeWidgetStateColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WcolTab {
     pub theme_widget_colors: ThemeWidgetColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeWidgetColors {
     #[serde(rename = "@outline")]
     pub outline: HexColor,
@@ -302,7 +301,7 @@ pub struct ThemeWidgetColors {
     pub roundness: Factor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeWidgetStateColors {
     #[serde(rename = "@inner_anim")]
     pub inner_anim: HexColor,
@@ -328,13 +327,13 @@ pub struct ThemeWidgetStateColors {
     pub blend: Factor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct View3d {
     pub theme_view_3_d: ThemeView3D,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeView3D {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -502,19 +501,19 @@ pub struct ThemeView3D {
     pub asset_shelf: Option<AssetShelf>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct SpaceGradient {
     pub theme_space_gradient: ThemeSpaceGradient,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct AssetShelf {
     pub theme_asset_shelf: ThemeAssetShelf,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeAssetShelf {
     #[serde(rename = "@header_back")]
     pub header_back: HexColor,
@@ -522,13 +521,13 @@ pub struct ThemeAssetShelf {
     pub back: HexColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct GraphEditor {
     pub theme_graph_editor: ThemeGraphEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeGraphEditor {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -598,13 +597,13 @@ pub struct ThemeGraphEditor {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct FileBrowser {
     pub theme_file_browser: ThemeFileBrowser,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeFileBrowser {
     #[serde(rename = "@selected_file")]
     pub selected_file: HexColor,
@@ -613,13 +612,13 @@ pub struct ThemeFileBrowser {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct NlaEditor {
     pub theme_n_l_a_editor: ThemeNLAEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeNLAEditor {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -671,13 +670,13 @@ pub struct ThemeNLAEditor {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct DopesheetEditor {
     pub theme_dope_sheet: ThemeDopeSheet,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeDopeSheet {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -757,13 +756,13 @@ pub struct ThemeDopeSheet {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct ImageEditor {
     pub theme_image_editor: ThemeImageEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeImageEditor {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -864,13 +863,13 @@ pub struct ThemeImageEditor {
     pub asset_shelf: Option<AssetShelf>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct SequenceEditor {
     pub theme_sequence_editor: ThemeSequenceEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeSequenceEditor {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -976,13 +975,13 @@ pub struct ThemeSequenceEditor {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Properties {
     pub theme_properties: ThemeProperties,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeProperties {
     #[serde(rename = "@match")]
     pub r#match: HexColor,
@@ -991,13 +990,13 @@ pub struct ThemeProperties {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct TextEditor {
     pub theme_text_editor: ThemeTextEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeTextEditor {
     #[serde(rename = "@line_numbers")]
     pub line_numbers: HexColor,
@@ -1026,13 +1025,13 @@ pub struct ThemeTextEditor {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct NodeEditor {
     pub theme_node_editor: ThemeNodeEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeNodeEditor {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -1100,57 +1099,57 @@ pub struct ThemeNodeEditor {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Outliner {
     pub theme_outliner: ThemeOutliner,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeOutliner {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Info {
     theme_info: ThemeInfo,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeInfo {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Preferences {
     pub theme_preferences: ThemePreferences,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemePreferences {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Console {
     pub theme_console: ThemeConsole,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeConsole {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct ClipEditor {
     pub theme_clip_editor: ThemeClipEditor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeClipEditor {
     #[serde(rename = "@grid")]
     pub grid: HexColor,
@@ -1216,35 +1215,35 @@ pub struct ThemeClipEditor {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Topbar {
     pub theme_top_bar: ThemeTopBar,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeTopBar {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Statusbar {
     pub theme_status_bar: ThemeStatusBar,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeStatusBar {
     pub space: Space,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Spreadsheet {
     pub theme_spreadsheet: ThemeSpreadsheet,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeSpreadsheet {
     #[serde(rename = "@row_alternate")]
     pub row_alternate: HexColor,
@@ -1252,7 +1251,7 @@ pub struct ThemeSpreadsheet {
     pub space_list: SpaceList,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Space {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -1261,7 +1260,7 @@ pub struct Space {
     pub theme_space_gradient: Option<ThemeSpaceGradient>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeSpaceGeneric {
     #[serde(rename = "@back")]
     pub back: HexColor,
@@ -1300,7 +1299,7 @@ pub struct ThemeSpaceGeneric {
     pub panelcolors: Panelcolors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeSpaceGradient {
     #[serde(rename = "@title")]
     pub title: HexColor,
@@ -1338,13 +1337,13 @@ pub struct ThemeSpaceGradient {
     pub panelcolors: Panelcolors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Gradients {
     pub theme_gradient_colors: ThemeGradientColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeGradientColors {
     #[serde(rename = "@background_type")]
     pub background_type: BackGroundType,
@@ -1354,13 +1353,13 @@ pub struct ThemeGradientColors {
     pub gradient: HexColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Panelcolors {
     pub theme_panel_colors: ThemePanelColors,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemePanelColors {
     #[serde(rename = "@header")]
     pub header: HexColor,
@@ -1370,13 +1369,13 @@ pub struct ThemePanelColors {
     pub sub_back: HexColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct SpaceList {
     pub theme_space_list_generic: ThemeSpaceListGeneric,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeSpaceListGeneric {
     #[serde(rename = "@list")]
     pub list: HexColor,
@@ -1388,13 +1387,13 @@ pub struct ThemeSpaceListGeneric {
     pub list_text_hi: HexColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct BoneColorSets {
     pub theme_bone_color_set: Vec<ThemeBoneColorSet>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeBoneColorSet {
     #[serde(rename = "@normal")]
     pub normal: HexColor,
@@ -1406,56 +1405,56 @@ pub struct ThemeBoneColorSet {
     pub show_colored_constraints: Boolean,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct CollectionColor {
     pub theme_collection_color: Vec<ThemeCollectionColor>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeCollectionColor {
     #[serde(rename = "@color")]
     pub color: HexColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct StripColor {
     pub theme_strip_color: Vec<ThemeStripColor>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeStripColor {
     #[serde(rename = "@color")]
     pub color: HexColor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeStyle {
     pub panel_title: PanelTitle,
     pub widget_label: WidgetLabel,
     pub widget: Widget,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct PanelTitle {
     pub theme_font_style: ThemeFontStyle,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct WidgetLabel {
     pub theme_font_style: ThemeFontStyle,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Widget {
     pub theme_font_style: ThemeFontStyle,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeFontStyle {
     #[serde(rename = "@points")]
     pub points: u8,
@@ -1476,7 +1475,7 @@ pub struct ThemeFontStyle {
     pub shadow_value: Factor,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub enum Version {
     V3_6,
     V4_0,
@@ -1520,11 +1519,8 @@ impl Version {
     fn get_path(&self) -> PathBuf {
         let crate_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
         let path_dir = crate_dir.join("themes/original");
-        path_dir.join(self.file_name())
-    }
-
-    pub fn file_name(&self) -> String {
-        format!("{self}_blender_dark.xml")
+        let file_name = format!("blender_dark_{self}.xml");
+        path_dir.join(file_name)
     }
 }
 

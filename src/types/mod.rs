@@ -6,7 +6,7 @@ use thiserror::Error;
 
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Factor(f32);
 
 impl Factor {
@@ -37,7 +37,7 @@ impl TryFrom<f32> for Factor {
     }
 }
 
-#[derive(Debug, Error)]
+#[derive(Clone, Debug, Error)]
 pub enum FactorError {
     #[error("Factor value must be between 0.0 and 1.0, but got: {0}")]
     OutOfRange(f32),
@@ -62,7 +62,7 @@ impl Serialize for Factor {
     }
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct HexColor {
     value: u32,
     has_alpha: bool,
@@ -127,7 +127,7 @@ impl fmt::Display for HexColor {
     }
 }
 
-#[derive(Debug, Error)]
+#[derive(Clone, Debug, Error)]
 pub enum HexColorError {
     #[error("Missing the leading hash '#': {0}")]
     MissingHash(String),
@@ -157,7 +157,7 @@ impl Serialize for HexColor {
     }
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Boolean(bool);
 
 impl Boolean {
@@ -176,7 +176,7 @@ impl fmt::Display for Boolean {
     }
 }
 
-#[derive(Debug, Error)]
+#[derive(Clone, Debug, Error)]
 pub enum BooleanError {
     #[error("Unexpected value: '{0}'. Expected 'TRUE' or 'FALSE'.")]
     UnexpectedValue(String),
@@ -202,7 +202,7 @@ impl<'de> Deserialize<'de> for Boolean {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub enum BackGroundType {
     RADIAL,
     #[serde(rename = "SINGLE_COLOR")]
