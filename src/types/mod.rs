@@ -64,13 +64,13 @@ impl Serialize for Factor {
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct HexColor {
-    value: u32,
-    has_alpha: bool,
+    pub value: u32,
+    pub alpha: Option<u8>,
 }
 
 impl HexColor {
-    fn new(value: u32, has_alpha: bool) -> Self {
-        Self { value, has_alpha }
+    fn new(value: u32, alpha: Option<u8>) -> Self {
+        Self { value, alpha }
     }
 
     pub fn try_from_str(hex_str: &str) -> Result<Self, HexColorError> {
@@ -82,11 +82,16 @@ impl HexColor {
         let value = match without_hash.len() {
             6 => {
                 // Handle #RRGGBB format
-                Self::new(u32::from_str_radix(without_hash, 16)?, false)
+                Self::new(u32::from_str_radix(without_hash, 16)?, None)
             }
             8 => {
                 // Handle #RRGGBBAA format directly
-                Self::new(u32::from_str_radix(without_hash, 16)?, true)
+                let value: String = without_hash.chars().take(6).collect();
+                let alpha: String = without_hash.chars().skip(6).collect();
+                Self::new(
+                    u32::from_str_radix(&value, 16)?,
+                    Some(u8::from_str_radix(&alpha, 16)?),
+                )
             }
             _ => {
                 return Err(HexColorError::IncorrectLength(hex_str.to_string()))
@@ -97,11 +102,13 @@ impl HexColor {
     }
 
     pub fn to_hex_string(&self) -> String {
-        if self.has_alpha {
-            format!("#{:08x}", self.value)
-        } else {
-            format!("#{:06x}", self.value)
+        let mut hex_string = format!("#{:06x}", self.value);
+
+        if let Some(alpha) = self.alpha {
+            hex_string.push_str(&format!("{alpha:02x}"));
         }
+
+        hex_string
     }
 }
 
