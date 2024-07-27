@@ -450,7 +450,7 @@ repository = "https://github.com/tafia/quick-xml"
 
 [[dependencies]]
 name = "quick-xml"
-version = "0.36.0"
+version = "0.36.1"
 description = "High performance xml reader and writer"
 license = "MIT"
 notices = ["Copyright (c) 2016 Johann Tuffe"]
@@ -682,7 +682,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.71"
+version = "2.0.72"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -944,7 +944,7 @@ repository = "https://github.com/tokio-rs/valuable"
 
 [[dependencies]]
 name = "version_check"
-version = "0.9.4"
+version = "0.9.5"
 description = "Tiny crate to check the version of the installed/running rustc."
 license = "MIT/Apache-2.0"
 notices = ["Copyright (c) 2017-2018 Sergio Benitez"]
