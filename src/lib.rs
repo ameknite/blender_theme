@@ -15,7 +15,7 @@ use xmlem::{
     Document,
 };
 
-use crate::types::{BackGroundType, Boolean, Factor, HexColor};
+pub use crate::types::{BackGroundType, Boolean, Factor, HexColor, Rgb};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct B3dTheme {

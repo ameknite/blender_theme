@@ -63,13 +63,20 @@ impl Serialize for Factor {
 }
 
 #[derive(Clone, Debug, PartialEq)]
+pub struct Rgb {
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
+}
+
+#[derive(Clone, Debug, PartialEq)]
 pub struct HexColor {
-    pub value: u32,
+    pub value: Rgb,
     pub alpha: Option<u8>,
 }
 
 impl HexColor {
-    fn new(value: u32, alpha: Option<u8>) -> Self {
+    fn new(value: Rgb, alpha: Option<u8>) -> Self {
         Self { value, alpha }
     }
 
@@ -82,16 +89,21 @@ impl HexColor {
         let value = match without_hash.len() {
             6 => {
                 // Handle #RRGGBB format
-                Self::new(u32::from_str_radix(without_hash, 16)?, None)
+                let array: [u8; 3] = const_hex::decode_to_array(without_hash)?;
+                let r = array[0];
+                let g = array[1];
+                let b = array[2];
+                Self::new(Rgb { r, g, b }, None)
             }
             8 => {
-                // Handle #RRGGBBAA format directly
-                let value: String = without_hash.chars().take(6).collect();
-                let alpha: String = without_hash.chars().skip(6).collect();
-                Self::new(
-                    u32::from_str_radix(&value, 16)?,
-                    Some(u8::from_str_radix(&alpha, 16)?),
-                )
+                // Handle #RRGGBBAA format
+                let without_hash: [u8; 4] =
+                    const_hex::decode_to_array(without_hash)?;
+                let r = without_hash[0];
+                let g = without_hash[1];
+                let b = without_hash[2];
+                let a = without_hash[3];
+                Self::new(Rgb { r, g, b }, Some(a))
             }
             _ => {
                 return Err(HexColorError::IncorrectLength(hex_str.to_string()))
@@ -102,10 +114,11 @@ impl HexColor {
     }
 
     pub fn to_hex_string(&self) -> String {
-        let mut hex_string = format!("#{:06x}", self.value);
+        let rgb = const_hex::encode([self.value.r, self.value.g, self.value.b]);
+        let mut hex_string = "#".to_string() + &rgb;
 
         if let Some(alpha) = self.alpha {
-            hex_string.push_str(&format!("{alpha:02x}"));
+            hex_string += &const_hex::encode([alpha]);
         }
 
         hex_string
@@ -140,8 +153,8 @@ pub enum HexColorError {
     MissingHash(String),
     #[error("Color string has incorrect length (should be 7 or 9, counting the hash #): {0}")]
     IncorrectLength(String),
-    #[error("Failed to parse hex value: {0}")]
-    ParseError(#[from] std::num::ParseIntError),
+    #[error("Error decoding hex string to Array: {0}")]
+    HexError(#[from] const_hex::FromHexError),
 }
 
 impl<'de> Deserialize<'de> for HexColor {
