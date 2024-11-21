@@ -178,5 +178,3 @@ jobs:
 
   check-msrv:
     uses: ./.github/workflows/check_msrv.yaml
-    # cargo-miri:
-    #   uses: ./.github/workflows/cargo_miri.yaml
