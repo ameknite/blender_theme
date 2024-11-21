@@ -12,7 +12,6 @@ jobs:
   build_and_release:
     uses: ./.github/workflows/build_and_release.yaml
     with:
-      release_type: none
-      publish: false
-      overwrite_tag: true
+      release_type: patch
+      publish: true
     secrets: inherit
