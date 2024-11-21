@@ -5,7 +5,7 @@ version = "0.1.0"
 edition = "2021"
 license = "GPL-3.0-or-later"
 repository = "https://github.com/ameknite/blender_theme"
-rust-version = "1.65.0"
+rust-version = "1.81.0"
 
 [dependencies]
 color-eyre = "0.6.3"
@@ -43,3 +43,4 @@ missing_panics_doc = "allow"
 # restriction
 undocumented_unsafe_blocks = "warn"
 multiple_unsafe_ops_per_block = "warn"
+allow_attributes = "warn"

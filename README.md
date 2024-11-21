@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue.svg)](https://github.com/ameknite/blender_theme?tab=readme-ov-file#license)
 [![Crates.io](https://img.shields.io/crates/v/blender_theme.svg)](https://crates.io/crates/blender_theme)
-[![Minimum Supported Rust Version](https://img.shields.io/badge/MSRV-1.65.0+-red.svg)](./Cargo.toml#L8)
+[![Minimum Supported Rust Version](https://img.shields.io/badge/MSRV-1.81.0+-red.svg)](./Cargo.toml#L8)
 [![CI](https://github.com/ameknite/blender_theme/actions/workflows/ci.yaml/badge.svg)](https://github.com/ameknite/blender_theme/actions/workflows/ci.yaml)
 
 Blender Theme Models.
@@ -51,7 +51,7 @@ fn main() -> color_eyre::Result<()> {
 
 | blender_theme | blender   |
 | ------------- | --------- |
-| 0.1           | 3.6 - 4.2 |
+| 0.1           | 3.6 - 4.3 |
 
 ## LICENSE
 
