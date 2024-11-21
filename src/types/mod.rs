@@ -22,8 +22,8 @@ impl Factor {
         self.0
     }
 
-    #[allow(clippy::cast_possible_truncation)]
-    #[allow(clippy::cast_sign_loss)]
+    #[expect(clippy::cast_possible_truncation)]
+    #[expect(clippy::cast_sign_loss)]
     pub fn to_hex_str(&self) -> String {
         format!("{:02x}", (self.value() * 255.0) as u8)
     }
