@@ -75,8 +75,18 @@ pub struct ThemeUserInterface {
     pub icon_saturation: Factor,
     #[serde(rename = "@widget_emboss")]
     pub widget_emboss: HexColor,
+    #[serde(
+        rename = "@editor_border",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub editor_border: Option<HexColor>,
     #[serde(rename = "@editor_outline")]
     pub editor_outline: HexColor,
+    #[serde(
+        rename = "@editor_outline_active",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub editor_outline_active: Option<HexColor>,
     #[serde(rename = "@widget_text_cursor")]
     pub widget_text_cursor: HexColor,
     #[serde(rename = "@panel_roundness")]
@@ -119,6 +129,8 @@ pub struct ThemeUserInterface {
     pub icon_shading: HexColor,
     #[serde(rename = "@icon_folder")]
     pub icon_folder: HexColor,
+    #[serde(rename = "@icon_autokey", skip_serializing_if = "Option::is_none")]
+    pub icon_autokey: Option<HexColor>,
     #[serde(rename = "@icon_border_intensity")]
     pub icon_border_intensity: Factor,
     pub wcol_regular: WcolRegular,
@@ -475,6 +487,18 @@ pub struct ThemeView3D {
     pub bone_solid: HexColor,
     #[serde(rename = "@bone_locked_weight")]
     pub bone_locked_weight: HexColor,
+    #[serde(rename = "@frame_current")]
+    pub frame_current: HexColor,
+    #[serde(
+        rename = "@before_current_frame",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub before_frame_current: Option<HexColor>,
+    #[serde(
+        rename = "@after_current_frame",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub after_frame_current: Option<HexColor>,
     #[serde(rename = "@bundle_solid")]
     pub bundle_solid: HexColor,
     #[serde(rename = "@camera_path")]
@@ -487,8 +511,6 @@ pub struct ThemeView3D {
     pub view_overlay: HexColor,
     #[serde(rename = "@transform")]
     pub transform: HexColor,
-    #[serde(rename = "@frame_current")]
-    pub frame_current: HexColor,
     #[serde(rename = "@paint_curve_handle")]
     pub paint_curve_handle: HexColor,
     #[serde(rename = "@paint_curve_pivot")]
@@ -627,6 +649,11 @@ pub struct ThemeNLAEditor {
     pub view_sliders: HexColor,
     #[serde(rename = "@dopesheet_channel")]
     pub dopesheet_channel: HexColor,
+    #[serde(
+        rename = "@dopesheet_subchannel",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub dopesheet_subchannel: Option<HexColor>,
     #[serde(rename = "@nla_track")]
     pub nla_track: HexColor,
     #[serde(rename = "@active_action")]
@@ -1096,6 +1123,11 @@ pub struct ThemeNodeEditor {
     pub simulation_zone: HexColor,
     #[serde(rename = "@repeat_zone", skip_serializing_if = "Option::is_none")]
     pub repeat_zone: Option<HexColor>,
+    #[serde(
+        rename = "@foreach_geometry_element_zone",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub foreach_geometry_element_zone: Option<HexColor>,
     pub space: Space,
     pub space_list: SpaceList,
 }
@@ -1108,6 +1140,20 @@ pub struct Outliner {
 
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeOutliner {
+    #[serde(rename = "@match")]
+    r#match: HexColor,
+    #[serde(rename = "@selected_highlight")]
+    selected_highlight: HexColor,
+    #[serde(rename = "@active")]
+    active: HexColor,
+    #[serde(rename = "@selected_object")]
+    selected_object: HexColor,
+    #[serde(rename = "@active_object")]
+    active_object: HexColor,
+    #[serde(rename = "@edited_object")]
+    edited_object: HexColor,
+    #[serde(rename = "@row_alternate")]
+    row_alternate: HexColor,
     pub space: Space,
 }
 
@@ -1119,6 +1165,34 @@ pub struct Info {
 
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeInfo {
+    #[serde(rename = "@info_selected")]
+    info_selected: HexColor,
+    #[serde(rename = "@info_selected_text")]
+    info_selected_text: HexColor,
+    #[serde(rename = "@info_error")]
+    info_error: HexColor,
+    #[serde(rename = "@info_error_text")]
+    info_error_text: HexColor,
+    #[serde(rename = "@info_warning")]
+    info_warning: HexColor,
+    #[serde(rename = "@info_warning_text")]
+    info_warning_text: HexColor,
+    #[serde(rename = "@info_info")]
+    info_info: HexColor,
+    #[serde(rename = "@info_info_text")]
+    info_info_text: HexColor,
+    #[serde(rename = "@info_debug")]
+    info_debug: HexColor,
+    #[serde(rename = "@info_debug_text")]
+    info_debug_text: HexColor,
+    #[serde(rename = "@info_property")]
+    info_property: HexColor,
+    #[serde(rename = "@info_property_text")]
+    info_property_text: HexColor,
+    #[serde(rename = "@info_operator")]
+    info_operator: HexColor,
+    #[serde(rename = "@info_operator_text")]
+    info_operator_text: HexColor,
     pub space: Space,
 }
 
@@ -1141,6 +1215,18 @@ pub struct Console {
 
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeConsole {
+    #[serde(rename = "@line_output")]
+    line_output: HexColor,
+    #[serde(rename = "@line_input")]
+    line_input: HexColor,
+    #[serde(rename = "@line_info")]
+    line_info: HexColor,
+    #[serde(rename = "@line_error")]
+    line_error: HexColor,
+    #[serde(rename = "@cursor")]
+    cursor: HexColor,
+    #[serde(rename = "@select")]
+    select: HexColor,
     pub space: Space,
 }
 
@@ -1433,8 +1519,11 @@ pub struct ThemeStripColor {
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 pub struct ThemeStyle {
     pub panel_title: PanelTitle,
-    pub widget_label: WidgetLabel,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub widget_label: Option<WidgetLabel>,
     pub widget: Widget,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub tooltip: Option<ToolTip>,
 }
 
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
@@ -1452,6 +1541,12 @@ pub struct WidgetLabel {
 #[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct Widget {
+    pub theme_font_style: ThemeFontStyle,
+}
+
+#[derive(Clone, Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all = "PascalCase")]
+pub struct ToolTip {
     pub theme_font_style: ThemeFontStyle,
 }
 
@@ -1482,6 +1577,7 @@ pub enum Version {
     V4_0,
     V4_1,
     V4_2,
+    V4_3,
 }
 
 impl fmt::Display for Version {
@@ -1491,6 +1587,7 @@ impl fmt::Display for Version {
             Version::V4_0 => "v4.0",
             Version::V4_1 => "v4.1",
             Version::V4_2 => "v4.2",
+            Version::V4_3 => "v4.3",
         };
         write!(f, "{version_str}")
     }
@@ -1581,6 +1678,12 @@ impl B3dTheme {
     }
 
     pub fn all_versions() -> Vec<Version> {
-        vec![Version::V3_6, Version::V4_0, Version::V4_1, Version::V4_2]
+        vec![
+            Version::V3_6,
+            Version::V4_0,
+            Version::V4_1,
+            Version::V4_2,
+            Version::V4_3,
+        ]
     }
 }

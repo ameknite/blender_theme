@@ -371,13 +371,13 @@
         bone_pose_active="#8cffff"
         bone_solid="#b2b2b2"
         bone_locked_weight="#ff000080"
+        frame_current="#4772b3"
         bundle_solid="#c8c8c8"
         camera_path="#000000"
         camera_passepartout="#000000"
         skin_root="#b44d4d"
         view_overlay="#000000"
         transform="#ffffff"
-        frame_current="#4772b3"
         paint_curve_handle="#7fff7f7f"
         paint_curve_pivot="#ff7f7f7f"
         outline_width="1"
@@ -529,6 +529,7 @@
         grid="#2a2a2a"
         view_sliders="#969696"
         dopesheet_channel="#0f2c4d"
+        dopesheet_subchannel="#7d98b3"
         nla_track="#303030"
         active_action="#99541366"
         active_action_unset="#4d3b174d"
@@ -946,7 +947,14 @@
       </ThemeNodeEditor>
     </node_editor>
     <outliner>
-      <ThemeOutliner>
+      <ThemeOutliner
+        match="#337f33"
+        selected_highlight="#1d314d"
+        active="#334d80"
+        selected_object="#e96a00"
+        active_object="#ffaf29"
+        edited_object="#00806266"
+        row_alternate="#ffffff04">
         <space>
           <ThemeSpaceGeneric
             back="#282828"
@@ -977,7 +985,21 @@
       </ThemeOutliner>
     </outliner>
     <info>
-      <ThemeInfo>
+      <ThemeInfo
+        info_selected="#3b5689"
+        info_selected_text="#ffffff"
+        info_error="#b34c34ff"
+        info_error_text="#ffffff"
+        info_warning="#ac8737ff"
+        info_warning_text="#ffffff"
+        info_info="#1f3862ff"
+        info_info_text="#ffffff"
+        info_debug="#6b3293ff"
+        info_debug_text="#ffffff"
+        info_property="#236666ff"
+        info_property_text="#ffffff"
+        info_operator="#235266ff"
+        info_operator_text="#ffffff">
         <space>
           <ThemeSpaceGeneric
             back="#1d1d1d"
@@ -1039,7 +1061,13 @@
       </ThemePreferences>
     </preferences>
     <console>
-      <ThemeConsole>
+      <ThemeConsole
+        line_output="#71a8ff"
+        line_input="#f2f2f2"
+        line_info="#95d600"
+        line_error="#ff4d84"
+        cursor="#ff0000"
+        select="#ffffff30">
         <space>
           <ThemeSpaceGeneric
             back="#1d1d1d"
