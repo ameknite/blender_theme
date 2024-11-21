@@ -110,7 +110,7 @@ repository = "https://github.com/eyre-rs/eyre"
 
 [[dependencies]]
 name = "const-hex"
-version = "1.13.1"
+version = "1.13.2"
 description = "Fast byte array to hex string conversion"
 license = "MIT OR Apache-2.0"
 authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
@@ -492,7 +492,7 @@ repository = "https://github.com/dtolnay/proc-macro-hack"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.91"
+version = "1.0.92"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
