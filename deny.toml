@@ -16,7 +16,7 @@ allow = [
   # Permissive
   "Apache-2.0",
   "MIT",
-  "Unicode-DFS-2016",
+  "Unicode-3.0",
   "Zlib",
   # CopyLeft - Only Source Code
   "MPL-2.0",

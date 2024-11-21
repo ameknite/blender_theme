@@ -17,7 +17,7 @@ repository = "https://github.com/jonas-schievink/adler.git"
 
 [[dependencies]]
 name = "autocfg"
-version = "1.3.0"
+version = "1.4.0"
 description = "Automatic cfg for Rust compiler features"
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2018 Josh Stone"]
@@ -47,6 +47,17 @@ authors = ["The Rust Project Developers"]
 repository = "https://github.com/bitflags/bitflags"
 
 [[dependencies]]
+name = "bitflags"
+version = "2.6.0"
+description = """
+A macro to generate structures which behave like bitflags.
+"""
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2014 The Rust Project Developers"]
+authors = ["The Rust Project Developers"]
+repository = "https://github.com/bitflags/bitflags"
+
+[[dependencies]]
 name = "byteorder"
 version = "1.5.0"
 description = "Library for reading/writing numbers in big-endian and little-endian."
@@ -57,7 +68,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.1.17"
+version = "1.2.1"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -98,12 +109,32 @@ authors = ["Jane Lusby <jlusby@yaah.dev>"]
 repository = "https://github.com/eyre-rs/eyre"
 
 [[dependencies]]
+name = "const-hex"
+version = "1.13.1"
+description = "Fast byte array to hex string conversion"
+license = "MIT OR Apache-2.0"
+authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
+repository = "https://github.com/danipopes/const-hex"
+
+[[dependencies]]
 name = "convert_case"
 version = "0.4.0"
 description = "Convert strings into any case"
 license = "MIT"
 authors = ["David Purdum <purdum41@gmail.com>"]
 repository = "https://github.com/rutrum/convert-case"
+
+[[dependencies]]
+name = "cpufeatures"
+version = "0.2.15"
+description = """
+Lightweight runtime CPU feature detection for aarch64, loongarch64, and x86/x86_64 targets, 
+with no_std support and support for mobile targets including Android and iOS
+"""
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2020 The RustCrypto Project Developers"]
+authors = ["RustCrypto Developers"]
+repository = "https://github.com/RustCrypto/utils"
 
 [[dependencies]]
 name = "cssparser"
@@ -178,6 +209,18 @@ authors = ["The Rand Project Developers"]
 repository = "https://github.com/rust-random/getrandom"
 
 [[dependencies]]
+name = "getrandom"
+version = "0.2.15"
+description = "A small cross-platform library for retrieving random data from system source"
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2014 The Rust Project Developers",
+  "Copyright (c) 2018-2024 The rust-random Project Developers",
+]
+authors = ["The Rand Project Developers"]
+repository = "https://github.com/rust-random/getrandom"
+
+[[dependencies]]
 name = "gimli"
 version = "0.28.1"
 description = "A library for reading and writing the DWARF debugging format."
@@ -193,6 +236,18 @@ license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2016 Amanieu d'Antras"]
 authors = ["Amanieu d'Antras <amanieu@gmail.com>"]
 repository = "https://github.com/rust-lang/hashbrown"
+
+[[dependencies]]
+name = "hex"
+version = "0.4.3"
+description = "Encoding and decoding data into/from hexadecimal representation."
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2013-2014 The Rust Project Developers.",
+  "Copyright (c) 2015-2020 The rust-hex Developers",
+]
+authors = ["KokaKiwi <kokakiwi@kokakiwi.net>"]
+repository = "https://github.com/KokaKiwi/rust-hex"
 
 [[dependencies]]
 name = "indenter"
@@ -222,7 +277,7 @@ repository = "https://github.com/dtolnay/itoa"
 
 [[dependencies]]
 name = "itoa"
-version = "1.0.11"
+version = "1.0.13"
 description = "Fast integer primitive to string conversion"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -239,7 +294,7 @@ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.158"
+version = "0.2.164"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -247,6 +302,24 @@ license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014-2020 The Rust Project Developers"]
 authors = ["The Rust Project Developers"]
 repository = "https://github.com/rust-lang/libc"
+
+[[dependencies]]
+name = "libm"
+version = "0.2.11"
+description = "libm in pure Rust"
+license = "MIT AND (MIT OR Apache-2.0)"
+notices = [
+  "Copyright (c) 2018 Jorge Aparicio",
+  "Copyright © 1993,2004 Sun Microsystems or",
+  "Copyright © 2003-2009 Bruce D. Evans or",
+  "Copyright © 2003-2009 Steven G. Kargl or",
+  "Copyright © 2003-2011 David Schultz or",
+  "Copyright © 2005-2020 Rich Felker, et al.",
+  "Copyright © 2008 Stephen L. Moshier or",
+  "Copyright © 2017-2018 Arm Limited",
+]
+authors = ["Jorge Aparicio <jorge@japaric.io>"]
+repository = "https://github.com/rust-lang/libm"
 
 [[dependencies]]
 name = "log"
@@ -305,6 +378,15 @@ authors = ["bluss"]
 repository = "https://github.com/bluss/arrayvec"
 
 [[dependencies]]
+name = "num-traits"
+version = "0.2.19"
+description = "Numeric traits for generic mathematics"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2014 The Rust Project Developers"]
+authors = ["The Rust Project Developers"]
+repository = "https://github.com/rust-num/num-traits"
+
+[[dependencies]]
 name = "object"
 version = "0.32.2"
 description = "A unified interface for reading and writing object file formats."
@@ -314,7 +396,7 @@ repository = "https://github.com/gimli-rs/object"
 
 [[dependencies]]
 name = "once_cell"
-version = "1.19.0"
+version = "1.20.2"
 description = "Single assignment cells and lazy values."
 license = "MIT OR Apache-2.0"
 authors = ["Aleksey Kladov <aleksey.kladov@gmail.com>"]
@@ -371,7 +453,7 @@ repository = "https://github.com/sfackler/rust-phf"
 
 [[dependencies]]
 name = "pin-project-lite"
-version = "0.2.14"
+version = "0.2.15"
 description = """
 A lightweight version of pin-project written with declarative macros.
 """
@@ -410,7 +492,7 @@ repository = "https://github.com/dtolnay/proc-macro-hack"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.86"
+version = "1.0.91"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -418,6 +500,18 @@ authors = [
   "Alex Crichton <alex@alexcrichton.com>",
 ]
 repository = "https://github.com/dtolnay/proc-macro2"
+
+[[dependencies]]
+name = "proptest"
+version = "1.5.0"
+description = """
+Hypothesis-like property-based testing and shrinking.
+"""
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2016 FullContact, Inc"]
+authors = ["Jason Lingle"]
+repository = "https://github.com/proptest-rs/proptest"
+homepage = "https://proptest-rs.github.io/proptest/proptest/index.html"
 
 [[dependencies]]
 name = "qname"
@@ -450,7 +544,7 @@ repository = "https://github.com/tafia/quick-xml"
 
 [[dependencies]]
 name = "quick-xml"
-version = "0.36.1"
+version = "0.37.1"
 description = "High performance xml reader and writer"
 license = "MIT"
 notices = ["Copyright (c) 2016 Johann Tuffe"]
@@ -480,6 +574,21 @@ repository = "https://github.com/rust-random/rand"
 homepage = "https://crates.io/crates/rand"
 
 [[dependencies]]
+name = "rand"
+version = "0.8.5"
+description = """
+Random number generators and other randomness functionality.
+"""
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2014 The Rust Project Developers",
+  "Copyright 2018 Developers of the Rand project",
+]
+authors = ["The Rand Project Developers", "The Rust Project Developers"]
+repository = "https://github.com/rust-random/rand"
+homepage = "https://rust-random.github.io/book"
+
+[[dependencies]]
 name = "rand_chacha"
 version = "0.2.2"
 description = """
@@ -499,6 +608,25 @@ repository = "https://github.com/rust-random/rand"
 homepage = "https://crates.io/crates/rand_chacha"
 
 [[dependencies]]
+name = "rand_chacha"
+version = "0.3.1"
+description = """
+ChaCha random number generator
+"""
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2014 The Rust Project Developers",
+  "Copyright 2018 Developers of the Rand project",
+]
+authors = [
+  "The Rand Project Developers",
+  "The Rust Project Developers",
+  "The CryptoCorrosion Contributors",
+]
+repository = "https://github.com/rust-random/rand"
+homepage = "https://rust-random.github.io/book"
+
+[[dependencies]]
 name = "rand_core"
 version = "0.5.1"
 description = """
@@ -512,6 +640,21 @@ notices = [
 authors = ["The Rand Project Developers", "The Rust Project Developers"]
 repository = "https://github.com/rust-random/rand"
 homepage = "https://crates.io/crates/rand_core"
+
+[[dependencies]]
+name = "rand_core"
+version = "0.6.4"
+description = """
+Core random number generator traits and tools for implementation.
+"""
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2014 The Rust Project Developers",
+  "Copyright 2018 Developers of the Rand project",
+]
+authors = ["The Rand Project Developers", "The Rust Project Developers"]
+repository = "https://github.com/rust-random/rand"
+homepage = "https://rust-random.github.io/book"
 
 [[dependencies]]
 name = "rand_hc"
@@ -539,6 +682,30 @@ notices = [
 authors = ["The Rand Project Developers"]
 repository = "https://github.com/rust-random/rand"
 homepage = "https://crates.io/crates/rand_pcg"
+
+[[dependencies]]
+name = "rand_xorshift"
+version = "0.3.0"
+description = """
+Xorshift random number generator
+"""
+license = "MIT OR Apache-2.0"
+notices = [
+  "Copyright (c) 2014 The Rust Project Developers",
+  "Copyright 2018 Developers of the Rand project",
+]
+authors = ["The Rand Project Developers", "The Rust Project Developers"]
+repository = "https://github.com/rust-random/rngs"
+homepage = "https://rust-random.github.io/book"
+
+[[dependencies]]
+name = "regex-syntax"
+version = "0.8.5"
+description = "A regular expression parser."
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) 2014 The Rust Project Developers"]
+authors = ["The Rust Project Developers", "Andrew Gallant <jamslam@gmail.com>"]
+repository = "https://github.com/rust-lang/regex/tree/master/regex-syntax"
 
 [[dependencies]]
 name = "rustc-demangle"
@@ -577,7 +744,7 @@ repository = "https://github.com/dtolnay/semver"
 
 [[dependencies]]
 name = "serde"
-version = "1.0.210"
+version = "1.0.215"
 description = "A generic serialization/deserialization framework"
 license = "MIT OR Apache-2.0"
 authors = [
@@ -589,7 +756,7 @@ homepage = "https://serde.rs"
 
 [[dependencies]]
 name = "serde_derive"
-version = "1.0.210"
+version = "1.0.215"
 description = "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]"
 license = "MIT OR Apache-2.0"
 authors = [
@@ -697,7 +864,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.77"
+version = "2.0.89"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -705,7 +872,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "thiserror"
-version = "1.0.63"
+version = "2.0.3"
 description = "derive(Error)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -713,7 +880,7 @@ repository = "https://github.com/dtolnay/thiserror"
 
 [[dependencies]]
 name = "thiserror-impl"
-version = "1.0.63"
+version = "2.0.3"
 description = "Implementation detail of the `thiserror` crate"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -802,6 +969,14 @@ authors = [
 ]
 repository = "https://github.com/tokio-rs/tracing"
 homepage = "https://tokio.rs"
+
+[[dependencies]]
+name = "unarray"
+version = "0.1.4"
+description = "Utilities for working with uninitialized arrays"
+license = "MIT OR Apache-2.0"
+notices = ["Copyright (c) [year] [fullname]"]
+repository = "https://github.com/cameron1024/unarray"
 
 [[dependencies]]
 name = "unic-char-property"
@@ -941,10 +1116,10 @@ repository = "https://github.com/open-i18n/rust-unic/"
 
 [[dependencies]]
 name = "unicode-ident"
-version = "1.0.12"
+version = "1.0.14"
 description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
-license = "(MIT OR Apache-2.0) AND Unicode-DFS-2016"
-notices = ["Copyright © 1991-2022 Unicode, Inc. All rights reserved."]
+license = "(MIT OR Apache-2.0) AND Unicode-3.0"
+notices = ["Copyright © 1991-2023 Unicode, Inc."]
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 repository = "https://github.com/dtolnay/unicode-ident"
 
@@ -969,6 +1144,14 @@ repository = "https://github.com/SergioBenitez/version_check"
 [[dependencies]]
 name = "wasi"
 version = "0.9.0+wasi-snapshot-preview1"
+description = "Experimental WASI API bindings for Rust"
+license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+authors = ["The Cranelift Project Developers"]
+repository = "https://github.com/bytecodealliance/wasi"
+
+[[dependencies]]
+name = "wasi"
+version = "0.11.0+wasi-snapshot-preview1"
 description = "Experimental WASI API bindings for Rust"
 license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
 authors = ["The Cranelift Project Developers"]
