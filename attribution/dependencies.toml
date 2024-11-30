@@ -68,7 +68,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.1"
+version = "1.2.2"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -110,7 +110,7 @@ repository = "https://github.com/eyre-rs/eyre"
 
 [[dependencies]]
 name = "const-hex"
-version = "1.13.2"
+version = "1.14.0"
 description = "Fast byte array to hex string conversion"
 license = "MIT OR Apache-2.0"
 authors = ["DaniPopes <57450786+DaniPopes@users.noreply.github.com>"]
@@ -277,7 +277,7 @@ repository = "https://github.com/dtolnay/itoa"
 
 [[dependencies]]
 name = "itoa"
-version = "1.0.13"
+version = "1.0.14"
 description = "Fast integer primitive to string conversion"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -294,7 +294,7 @@ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.164"
+version = "0.2.167"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -864,7 +864,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.89"
+version = "2.0.90"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -897,7 +897,7 @@ repository = "https://github.com/Amanieu/thread_local-rs"
 
 [[dependencies]]
 name = "tracing"
-version = "0.1.40"
+version = "0.1.41"
 description = """
 Application-level tracing for Rust.
 """
@@ -912,7 +912,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tracing-attributes"
-version = "0.1.27"
+version = "0.1.28"
 description = """
 Procedural macro attributes for automatically instrumenting functions.
 """
@@ -928,7 +928,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tracing-core"
-version = "0.1.32"
+version = "0.1.33"
 description = """
 Core primitives for application-level tracing.
 """
@@ -940,7 +940,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tracing-error"
-version = "0.2.0"
+version = "0.2.1"
 description = """
 Utilities for enriching errors with `tracing`.
 """
@@ -956,7 +956,7 @@ homepage = "https://tokio.rs"
 
 [[dependencies]]
 name = "tracing-subscriber"
-version = "0.3.18"
+version = "0.3.19"
 description = """
 Utilities for implementing and composing `tracing` subscribers.
 """
