@@ -14,7 +14,7 @@ quick-xml = { version = "0.37.1", features = ["serialize"] }
 serde = { version = "1.0.216", features = ["derive"] }
 serde_path_to_error = "0.1.16"
 thiserror = "2.0.8"
-xmlem = "0.2.3"
+xmlem = "0.3.0"
 
 # https://doc.rust-lang.org/cargo/reference/profiles.html
 # https://github.com/johnthagen/min-sized-rust
