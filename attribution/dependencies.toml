@@ -68,7 +68,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.4"
+version = "1.2.5"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -294,7 +294,7 @@ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.168"
+version = "0.2.169"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -302,24 +302,6 @@ license = "MIT OR Apache-2.0"
 notices = ["Copyright (c) 2014-2020 The Rust Project Developers"]
 authors = ["The Rust Project Developers"]
 repository = "https://github.com/rust-lang/libc"
-
-[[dependencies]]
-name = "libm"
-version = "0.2.11"
-description = "libm in pure Rust"
-license = "MIT AND (MIT OR Apache-2.0)"
-notices = [
-  "Copyright (c) 2018 Jorge Aparicio",
-  "Copyright © 1993,2004 Sun Microsystems or",
-  "Copyright © 2003-2009 Bruce D. Evans or",
-  "Copyright © 2003-2009 Steven G. Kargl or",
-  "Copyright © 2003-2011 David Schultz or",
-  "Copyright © 2005-2020 Rich Felker, et al.",
-  "Copyright © 2008 Stephen L. Moshier or",
-  "Copyright © 2017-2018 Arm Limited",
-]
-authors = ["Jorge Aparicio <jorge@japaric.io>"]
-repository = "https://github.com/rust-lang/libm"
 
 [[dependencies]]
 name = "log"
@@ -503,7 +485,7 @@ repository = "https://github.com/dtolnay/proc-macro2"
 
 [[dependencies]]
 name = "proptest"
-version = "1.5.0"
+version = "1.6.0"
 description = """
 Hypothesis-like property-based testing and shrinking.
 """
@@ -872,7 +854,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "thiserror"
-version = "2.0.7"
+version = "2.0.8"
 description = "derive(Error)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -880,7 +862,7 @@ repository = "https://github.com/dtolnay/thiserror"
 
 [[dependencies]]
 name = "thiserror-impl"
-version = "2.0.7"
+version = "2.0.8"
 description = "Implementation detail of the `thiserror` crate"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
