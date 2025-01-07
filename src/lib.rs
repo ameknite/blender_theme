@@ -1655,14 +1655,22 @@ impl B3dTheme {
         let xml_serialized = quick_xml::se::to_string(&self.bpy)?;
 
         let doc = Document::from_str(&xml_serialized)?;
-        let xml_serialized = doc.to_string_pretty_with_config(&Config {
-            is_pretty: true,
-            indent: 2,
-            end_pad: 0,
-            max_line_length: 0,
-            entity_mode: EntityMode::Standard,
-            indent_text_nodes: true,
-        });
+        // let xml_serialized = doc.to_string_pretty_with_config(&Config {
+        //     is_pretty: true,
+        //     indent: 2,
+        //     end_pad: 0,
+        //     max_line_length: 0,
+        //     entity_mode: EntityMode::Standard,
+        //     indent_text_nodes: true,
+        // });
+        let config_pretty = Config::default_pretty()
+            .indent(2)
+            .end_pad(0)
+            .max_line_length(0)
+            .entity_mode(EntityMode::Standard)
+            .indent_text_nodes(true);
+
+        let xml_serialized = doc.to_string_pretty_with_config(&config_pretty);
 
         fs::write(file_path, &xml_serialized)?;
 
