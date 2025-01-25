@@ -238,7 +238,7 @@ repository = "https://github.com/yaahc/indenter"
 
 [[dependencies]]
 name = "indexmap"
-version = "2.7.0"
+version = "2.7.1"
 description = "A hash table with consistent order and fast iteration."
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2016--2017"]
@@ -962,7 +962,7 @@ repository = "https://github.com/open-i18n/rust-unic/"
 
 [[dependencies]]
 name = "unicode-ident"
-version = "1.0.14"
+version = "1.0.15"
 description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
 license = "(MIT OR Apache-2.0) AND Unicode-3.0"
 notices = ["Copyright © 1991-2023 Unicode, Inc."]
