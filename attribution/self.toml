@@ -1,6 +1,6 @@
 [self]
 name = "blender_theme"
-version = "0.1.1"
+version = "0.1.2"
 description = "Blender Theme Model"
 license = "GPL-3.0-or-later"
 notices = [
