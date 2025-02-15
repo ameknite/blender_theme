@@ -57,7 +57,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.12"
+version = "1.2.14"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -160,11 +160,11 @@ repository = "https://github.com/upsuper/dtoa-short"
 
 [[dependencies]]
 name = "equivalent"
-version = "1.0.1"
+version = "1.0.2"
 description = "Traits for key comparison in maps."
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2016--2023"]
-repository = "https://github.com/cuviper/equivalent"
+repository = "https://github.com/indexmap-rs/equivalent"
 
 [[dependencies]]
 name = "eyre"
