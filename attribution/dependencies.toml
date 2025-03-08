@@ -37,7 +37,7 @@ repository = "https://github.com/rust-lang/backtrace-rs"
 
 [[dependencies]]
 name = "bitflags"
-version = "2.8.0"
+version = "2.9.0"
 description = """
 A macro to generate structures which behave like bitflags.
 """
@@ -144,7 +144,7 @@ repository = "https://github.com/JelteF/derive_more"
 
 [[dependencies]]
 name = "dtoa"
-version = "1.0.9"
+version = "1.0.10"
 description = "Fast floating point primitive to string conversion"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -246,7 +246,7 @@ repository = "https://github.com/indexmap-rs/indexmap"
 
 [[dependencies]]
 name = "itoa"
-version = "1.0.14"
+version = "1.0.15"
 description = "Fast integer primitive to string conversion"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -438,7 +438,7 @@ repository = "https://github.com/emilio/precomputed-hash"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.93"
+version = "1.0.94"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
@@ -490,7 +490,7 @@ repository = "https://github.com/tafia/quick-xml"
 
 [[dependencies]]
 name = "quote"
-version = "1.0.38"
+version = "1.0.39"
 description = "Quasi-quoting macro quote!(...)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -614,7 +614,7 @@ homepage = "https://serde.rs"
 
 [[dependencies]]
 name = "serde_path_to_error"
-version = "0.1.16"
+version = "0.1.17"
 description = "Path to the element that failed to deserialize"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -710,7 +710,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "syn"
-version = "2.0.98"
+version = "2.0.99"
 description = "Parser for Rust source code"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -718,7 +718,7 @@ repository = "https://github.com/dtolnay/syn"
 
 [[dependencies]]
 name = "thiserror"
-version = "2.0.11"
+version = "2.0.12"
 description = "derive(Error)"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -726,7 +726,7 @@ repository = "https://github.com/dtolnay/thiserror"
 
 [[dependencies]]
 name = "thiserror-impl"
-version = "2.0.11"
+version = "2.0.12"
 description = "Implementation detail of the `thiserror` crate"
 license = "MIT OR Apache-2.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
@@ -962,7 +962,7 @@ repository = "https://github.com/open-i18n/rust-unic/"
 
 [[dependencies]]
 name = "unicode-ident"
-version = "1.0.17"
+version = "1.0.18"
 description = "Determine whether characters have the XID_Start or XID_Continue properties according to Unicode Standard Annex #31"
 license = "(MIT OR Apache-2.0) AND Unicode-3.0"
 notices = ["Copyright © 1991-2023 Unicode, Inc."]
