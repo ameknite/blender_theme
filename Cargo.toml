@@ -11,7 +11,7 @@ rust-version = "1.81.0"
 color-eyre = "0.6.3"
 const-hex = "1.14.0"
 quick-xml = { version = "0.37.2", features = ["serialize"] }
-serde = { version = "1.0.218", features = ["derive"] }
+serde = { version = "1.0.219", features = ["derive"] }
 serde_path_to_error = "0.1.17"
 thiserror = "2.0.12"
 xmlem = "0.3.1"
