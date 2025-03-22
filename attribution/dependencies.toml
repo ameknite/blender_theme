@@ -57,7 +57,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.16"
+version = "1.2.17"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -997,7 +997,7 @@ repository = "https://github.com/bytecodealliance/wasi"
 
 [[dependencies]]
 name = "xmlem"
-version = "0.3.1"
+version = "0.3.3"
 description = "XML DOM implementation with pretty printing"
 license = "Apache-2.0 OR MIT"
 notices = ["Copyright (c) 2022  Brendan Molloy <brendan@bbqsrc.net>"]
@@ -1006,7 +1006,7 @@ repository = "https://github.com/xmlem/xmlem"
 
 [[dependencies]]
 name = "zerocopy"
-version = "0.8.23"
+version = "0.8.24"
 description = '''Zerocopy makes zero-cost memory manipulation effortless. We write "unsafe" so you don't have to.'''
 license = "BSD-2-Clause OR Apache-2.0 OR MIT"
 notices = [
@@ -1021,7 +1021,7 @@ repository = "https://github.com/google/zerocopy"
 
 [[dependencies]]
 name = "zerocopy-derive"
-version = "0.8.23"
+version = "0.8.24"
 description = "Custom derive for traits from the zerocopy crate"
 license = "BSD-2-Clause OR Apache-2.0 OR MIT"
 notices = [
