@@ -274,7 +274,7 @@ repository = "https://github.com/rust-lang/libc"
 
 [[dependencies]]
 name = "log"
-version = "0.4.26"
+version = "0.4.27"
 description = """
 A lightweight logging facade for Rust
 """
@@ -346,7 +346,7 @@ repository = "https://github.com/gimli-rs/object"
 
 [[dependencies]]
 name = "once_cell"
-version = "1.21.1"
+version = "1.21.3"
 description = "Single assignment cells and lazy values."
 license = "MIT OR Apache-2.0"
 authors = ["Aleksey Kladov <aleksey.kladov@gmail.com>"]
@@ -482,7 +482,7 @@ repository = "https://github.com/xmlem/qname"
 
 [[dependencies]]
 name = "quick-xml"
-version = "0.37.2"
+version = "0.37.3"
 description = "High performance xml reader and writer"
 license = "MIT"
 notices = ["Copyright (c) 2016 Johann Tuffe"]
