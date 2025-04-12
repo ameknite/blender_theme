@@ -57,7 +57,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.18"
+version = "1.2.19"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
