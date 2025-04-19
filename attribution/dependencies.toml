@@ -263,7 +263,7 @@ repository = "https://github.com/rust-lang-nursery/lazy-static.rs"
 
 [[dependencies]]
 name = "libc"
-version = "0.2.171"
+version = "0.2.172"
 description = """
 Raw FFI bindings to platform libraries like libc.
 """
@@ -438,7 +438,7 @@ repository = "https://github.com/emilio/precomputed-hash"
 
 [[dependencies]]
 name = "proc-macro2"
-version = "1.0.94"
+version = "1.0.95"
 description = "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case."
 license = "MIT OR Apache-2.0"
 authors = [
