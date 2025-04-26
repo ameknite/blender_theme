@@ -57,7 +57,7 @@ repository = "https://github.com/BurntSushi/byteorder"
 
 [[dependencies]]
 name = "cc"
-version = "1.2.19"
+version = "1.2.20"
 description = """
 A build-time dependency for Cargo build scripts to assist in invoking the native
 C compiler to compile native C code into a static archive to be linked into Rust
@@ -135,7 +135,7 @@ repository = "https://github.com/servo/rust-cssparser"
 
 [[dependencies]]
 name = "derive_more"
-version = "0.99.19"
+version = "0.99.20"
 description = "Adds #[derive(x)] macros for more traits"
 license = "MIT"
 notices = ["Copyright (c) 2016 Jelte Fennema"]
@@ -187,7 +187,7 @@ repository = "https://github.com/cbreeden/fxhash"
 
 [[dependencies]]
 name = "getrandom"
-version = "0.2.15"
+version = "0.2.16"
 description = "A small cross-platform library for retrieving random data from system source"
 license = "MIT OR Apache-2.0"
 notices = [
@@ -1006,7 +1006,7 @@ repository = "https://github.com/xmlem/xmlem"
 
 [[dependencies]]
 name = "zerocopy"
-version = "0.8.24"
+version = "0.8.25"
 description = '''Zerocopy makes zero-cost memory manipulation effortless. We write "unsafe" so you don't have to.'''
 license = "BSD-2-Clause OR Apache-2.0 OR MIT"
 notices = [
@@ -1021,7 +1021,7 @@ repository = "https://github.com/google/zerocopy"
 
 [[dependencies]]
 name = "zerocopy-derive"
-version = "0.8.24"
+version = "0.8.25"
 description = "Custom derive for traits from the zerocopy crate"
 license = "BSD-2-Clause OR Apache-2.0 OR MIT"
 notices = [
