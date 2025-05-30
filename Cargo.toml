@@ -8,7 +8,7 @@ repository = "https://github.com/ameknite/blender_theme"
 rust-version = "1.81.0"
 
 [dependencies]
-color-eyre = "0.6.4"
+color-eyre = "0.6.5"
 const-hex = "1.14.1"
 quick-xml = { version = "0.37.5", features = ["serialize"] }
 serde = { version = "1.0.219", features = ["derive"] }
