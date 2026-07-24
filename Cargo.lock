@@ -50,7 +50,7 @@ version = "0.1.5"
 dependencies = [
  "color-eyre",
  "const-hex",
- "quick-xml 0.41.0",
+ "quick-xml",
  "serde",
  "serde_path_to_error",
  "thiserror",
@@ -446,15 +446,6 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.40.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2474bd2e5029e7ccb6abb2ba48cf2383a333851dedf495901544281590c7da7f"
-dependencies = [
- "memchr",
-]
-
-[[package]]
-name = "quick-xml"
 version = "0.41.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e660451e55124f798a69a5af3f49ccfbefbd41910eefd25caf2393e1f3473ec1"
@@ -545,9 +536,9 @@ dependencies = [
 
 [[package]]
 name = "selectors"
-version = "0.38.0"
+version = "0.39.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8adfa1c298912827b8a28b223b3b874357397ae706e6190acd9bf28cee99114d"
+checksum = "bad7c25c97cc59c4858df8724a3789caa6ee509b628dfe6df34e8a8084c8a84e"
 dependencies = [
  "bitflags",
  "cssparser",
@@ -988,16 +979,16 @@ checksum = "1ebf944e87a7c253233ad6766e082e3cd714b5d03812acc24c318f549614536e"
 
 [[package]]
 name = "xmlem"
-version = "0.4.1"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9ff64b017004c7ea7ba29cac579430d7abe6679f5190d4a407626fe66b5d375d"
+checksum = "36c639082004b5cb20332beeed784ad82d1d832935c4ab64bb255cf83bc06c33"
 dependencies = [
  "cssparser",
  "indexmap",
  "once_cell",
  "precomputed-hash",
  "qname",
- "quick-xml 0.40.1",
+ "quick-xml",
  "selectors",
  "slotmap",
  "tracing",
